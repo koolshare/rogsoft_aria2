@@ -7,15 +7,8 @@ LOG_FILE=/tmp/upload/aria2_log.txt
 
 perpare(){
 	# ddnsto pathrough
-	if [ "`dbus get aria2_ddnsto`" == "1" ] && [ -f "/koolshare/bin/ddnsto" ] && [ -n "`pidof ddnsto`" ]; then
-		echo_date 开启aria2的远程穿透连接!
-		ddnsto_route_id=`/koolshare/bin/ddnsto -w | awk '{print $2}'`
-		aria2_ddnsto_token=`echo $(dbus get ddnsto_token)-${ddnsto_route_id}`
-		dbus set aria2_ddnsto_token=$aria2_ddnsto_token
-	else
-		echo_date 开启aria2的远程穿透连接失败！开启传统非穿透模式！
-		dbus set aria2_ddnsto=0
-	fi
+	dbus set aria2_ddnsto=0
+
 	# check disk
 	usb_disk1=`/bin/mount | grep -E 'mnt' | sed -n 1p | cut -d" " -f3`
 	if [ -n "$usb_disk1" ];then
@@ -46,15 +39,9 @@ perpare(){
 			bt-tracker=`dbus get aria2_bt_tracker|base64_decode|sed '/^\s*$/d'|sed ":a;N;s/\n/,/g;ta"`
 		EOF
 	fi
-	if [ "`dbus get aria2_ddnsto`" == "1" ] && [ -f "/koolshare/bin/ddnsto" ]; then
-		cat >> /tmp/aria2.conf <<-EOF
-			rpc-secret=$aria2_ddnsto_token
-		EOF
-	else
-		cat >> /tmp/aria2.conf <<-EOF
-			rpc-secret=$aria2_rpc_secret
-		EOF
-	fi
+	cat >> /tmp/aria2.conf <<-EOF
+		rpc-secret=$aria2_rpc_secret
+	EOF
 	cat /tmp/aria2.conf|sort > /koolshare/aria2/aria2.conf
 }
 
