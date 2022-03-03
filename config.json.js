@@ -7,5 +7,5 @@
     "module": "aria2", 
     "tags": "下载 USB", 
     "title": "aria2", 
-    "version": "2.3.2"
+    "version": "2.3.3"
 }
