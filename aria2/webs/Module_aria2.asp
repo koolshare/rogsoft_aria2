@@ -1245,11 +1245,11 @@
 
 			function generate_ariang_link() {
 				var link_ariang = window.btoa(db_aria2_["aria2_ddnsto_token"])
-				E("link4.1").href = "http://aria2.koolcenter.com/aria-ng/#!/settings/rpc/set/http/" + '<% nvram_get("lan_ipaddr"); %>' + "/" + db_aria2_["aria2_rpc_listen_port"] + "/jsonrpc/" + link_ariang;
+				E("link4.1").href = "http://aria2.koolcenter.com/aria-ng/#!/settings/rpc/set/http/" + location.hostname + "/" + db_aria2_["aria2_rpc_listen_port"] + "/jsonrpc/" + window.btoa(db_aria2_["aria2_rpc_secret"]);
 			}
 			
 			function generate_glutton_link() {
-				var link_glutton = window.btoa("http://" + '<% nvram_get("lan_ipaddr"); %>' + ":" + db_aria2_["aria2_rpc_listen_port"] + "/jsonrpc||" + db_aria2_["aria2_rpc_secret"])
+				var link_glutton = window.btoa("http://" + location.hostname + ":" + db_aria2_["aria2_rpc_listen_port"] + "/jsonrpc||" + db_aria2_["aria2_rpc_secret"])
 				E("link4.2").href = "http://aria2.koolcenter.com/glutton/" + "?s=" + link_glutton;
 			}
 			function copyUrl2(){ 
