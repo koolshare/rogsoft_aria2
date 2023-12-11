@@ -191,9 +191,9 @@
 			var ddnsto_ = {};
 			var params_input = ["aria2_cpulimit_value", "aria2_dir", "aria2_max_tries", "aria2_retry_wait", "aria2_referer", "aria2_disk_cache", "aria2_file_allocation", "aria2_rpc_listen_port", "aria2_event_poll", "aria2_rpc_secret", "aria2_max_concurrent_downloads", "aria2_max_connection_per_server", "aria2_min_split_size", "aria2_split", "aria2_max_overall_download_limit", "aria2_max_download_limit", "aria2_max_overall_upload_limit", "aria2_max_upload_limit", "aria2_lowest_speed_limit", "aria2_dht_listen_port", "aria2_bt_max_peers", "aria2_listen_port", "aria2_user_agent", "aria2_peer_id_prefix", "aria2_seed_ratio", "aria2_save_session_interval", "aria2_input_file", "aria2_save_session"]
 			var params_check1 = ["aria2_enable", "aria2_cpulimit_enable"];
-			var params_check2 = ["aria2_disable_ipv6", "aria2_continue", "aria2_enable_mmap", "aria2_enable_rpc", "aria2_rpc_allow_origin_all", "aria2_rpc_listen_all", "aria2_bt_enable_lpd", "aria2_enable_dht", "aria2_bt_require_crypto", "aria2_follow_torrent", "aria2_enable_peer_exchange", "aria2_force_save", "aria2_bt_hash_check_seed", "aria2_bt_seed_unverified", "aria2_bt_save_metadata"];
+			var params_check2 = ["aria2_disable_ipv6", "aria2_continue", "aria2_enable_mmap", "aria2_enable_rpc", "aria2_rpc_allow_origin_all", "aria2_rpc_listen_all", "aria2_bt_detach_seed_only", "aria2_bt_enable_lpd", "aria2_enable_dht", "aria2_bt_require_crypto", "aria2_follow_torrent", "aria2_enable_peer_exchange", "aria2_force_save", "aria2_bt_hash_check_seed", "aria2_bt_seed_unverified", "aria2_bt_save_metadata"];
 			var params_base64 = ["aria2_custom", "aria2_bt_tracker"];
-			var params_all = ["aria2_cpulimit_value", "aria2_dir", "aria2_max_tries", "aria2_retry_wait", "aria2_referer", "aria2_disk_cache", "aria2_file_allocation", "aria2_rpc_listen_port", "aria2_event_poll", "aria2_rpc_secret", "aria2_max_concurrent_downloads", "aria2_max_connection_per_server", "aria2_min_split_size", "aria2_split", "aria2_max_overall_download_limit", "aria2_max_download_limit", "aria2_max_overall_upload_limit", "aria2_max_upload_limit", "aria2_lowest_speed_limit", "aria2_dht_listen_port", "aria2_bt_max_peers", "aria2_listen_port", "aria2_user_agent", "aria2_peer_id_prefix", "aria2_seed_ratio", "aria2_save_session_interval", "aria2_input_file", "aria2_save_session", "aria2_enable", "aria2_cpulimit_enable", "aria2_disable_ipv6", "aria2_continue", "aria2_enable_mmap", "aria2_enable_rpc", "aria2_rpc_allow_origin_all", "aria2_rpc_listen_all", "aria2_bt_enable_lpd", "aria2_enable_dht", "aria2_bt_require_crypto", "aria2_follow_torrent", "aria2_enable_peer_exchange", "aria2_force_save", "aria2_bt_hash_check_seed", "aria2_bt_seed_unverified", "aria2_bt_save_metadata", "aria2_custom", "aria2_bt_tracker"];
+			var params_all = ["aria2_cpulimit_value", "aria2_dir", "aria2_max_tries", "aria2_retry_wait", "aria2_referer", "aria2_disk_cache", "aria2_file_allocation", "aria2_rpc_listen_port", "aria2_event_poll", "aria2_rpc_secret", "aria2_max_concurrent_downloads", "aria2_max_connection_per_server", "aria2_min_split_size", "aria2_split", "aria2_max_overall_download_limit", "aria2_max_download_limit", "aria2_max_overall_upload_limit", "aria2_max_upload_limit", "aria2_lowest_speed_limit", "aria2_dht_listen_port", "aria2_bt_max_peers", "aria2_listen_port", "aria2_user_agent", "aria2_peer_id_prefix", "aria2_seed_ratio", "aria2_save_session_interval", "aria2_input_file", "aria2_save_session", "aria2_enable", "aria2_cpulimit_enable", "aria2_disable_ipv6", "aria2_continue", "aria2_enable_mmap", "aria2_enable_rpc", "aria2_rpc_allow_origin_all", "aria2_rpc_listen_all", "aria2_bt_detach_seed_only", "aria2_bt_enable_lpd", "aria2_enable_dht", "aria2_bt_require_crypto", "aria2_follow_torrent", "aria2_enable_peer_exchange", "aria2_force_save", "aria2_bt_hash_check_seed", "aria2_bt_seed_unverified", "aria2_bt_save_metadata", "aria2_custom", "aria2_bt_tracker"];
 			function init() {
 				show_menu(menu_hook);
 				get_dbus_data();
@@ -1691,6 +1691,15 @@
 										</div>
 										<div id="aria2_bt_table" style="margin:-1px 0px 0px 0px;display: none;">
 											<table style="margin:-1px 0px 0px 0px;" width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable">
+												<tr>
+													<td style="width:25%;">
+														<label>分离仅做种任务(bt-detach-seed-only)</label>
+													</td>
+													<td>
+														<input type="checkbox" id="aria2_bt_detach_seed_only" name="aria2_bt_detach_seed_only" />
+														<small>*</small>
+													</td>
+												</tr>
 												<tr>
 													<td style="width:25%;">
 														<label>启用本地节点查找(LPD)</label>
