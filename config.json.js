@@ -1,11 +1,11 @@
 {
-    "author": "sadog", 
-    "description": "linux下载利器", 
-    "home_url": "Module_aria2.asp", 
-    "link": "", 
-    "md5": "c11f53f9e1b7b1f8ba80c96897c391e4", 
-    "module": "aria2", 
-    "tags": "下载 USB", 
-    "title": "aria2", 
-    "version": "2.3.5"
+    "author": "sadog",
+    "description": "linux下载利器",
+    "home_url": "Module_aria2.asp",
+    "link": "",
+    "md5": "214e523e2cd1f254e5be5e2f9a92d839",
+    "module": "aria2",
+    "tags": "下载 USB",
+    "title": "aria2",
+    "version": "2.3.6"
 }
